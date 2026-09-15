@@ -1,9 +1,5 @@
-import React from 'react'
+import ProductsMain from "@/features/products/ProductsMain";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export default function Productpage() {
+  return <ProductsMain />;
 }
-
-export default page
