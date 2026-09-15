@@ -97,7 +97,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
           fixed lg:relative inset-y-0 left-0 z-[60]
           bg-[#030C25] text-[#94a3b8] flex flex-col h-screen transition-all duration-300 ease-in-out shadow-2xl
           ${isOpen ? "translate-x-0 w-[260px]" : "-translate-x-full lg:translate-x-0"}
-          ${isCollapsed && !isOpen ? "lg:w-[72px]" : "lg:w-[240px]"}
+          ${isCollapsed && !isOpen ? "lg:w-[72px]" : "lg:w-[230px]"}
         `}
       >
         
