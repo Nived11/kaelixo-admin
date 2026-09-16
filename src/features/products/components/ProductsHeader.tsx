@@ -1,6 +1,6 @@
 import { Plus, Upload, ChevronRight } from "lucide-react";
 
-export default function ProductsHeader() {
+export default function ProductsHeader({ onNavigate }: { onNavigate: (view: string) => void }) {
   return (
     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
       
@@ -19,16 +19,14 @@ export default function ProductsHeader() {
         <div className="hidden lg:flex items-center gap-4 px-5 py-2.5 rounded-lg text-white shadow-md cursor-pointer transition-all hover:opacity-95 relative overflow-hidden"
              style={{ background: 'linear-gradient(90deg, #321c8c 0%, #5b21b6 50%, #b010ef 95%, #b010ef 100%)' }}>
           
-          {/* Subtle background stars */}
           <div className="absolute top-2 right-16 w-1 h-1 bg-white rounded-full opacity-50 animate-pulse"></div>
           <div className="absolute bottom-2 right-28 w-1.5 h-1.5 bg-purple-200 rounded-full opacity-60"></div>
 
-          {/* Original Rocket Image / Icon */}
           <div className="w-9 h-9 flex items-center justify-center shrink-0 shadow-inner">
             <img 
               src="https://cdn-icons-png.flaticon.com/512/1356/1356479.png" 
               alt="Rocket" 
-              className="w-5 h-5 object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] "
+              className="w-5 h-5 object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
             />
           </div>
 
@@ -42,9 +40,12 @@ export default function ProductsHeader() {
           </div>
         </div>
 
-        {/* Add New Product Button */}
-        <button className="px-4.5 py-3 rounded-lg text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
-                style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}>
+        {/* Add New Product Button with trigger */}
+        <button 
+          onClick={() => onNavigate("create")}
+          className="px-4.5 py-3 rounded-lg text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
+          style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
+        >
           <Plus size={14} strokeWidth={3} /> Add New Product
         </button>
 

@@ -35,7 +35,7 @@ export default function ProductsFilterBar() {
 
       {/* Right Group: Reset & Gradient Apply Filters Buttons */}
       <div className="flex items-center gap-2.5 shrink-0 ml-auto">
-        <button className="text-xs font-bold bg-red-500 rounded-lg text-white hover:text-gray-700 px-4 py-2.5 transition-colors cursor-pointer">
+        <button className="text-xs font-bold bg-red-500 rounded-lg text-white px-4 py-2.5 transition-colors cursor-pointer">
           Reset
         </button>
         <button className="px-4.5 py-2.5 text-white rounded-lg  text-xs font-bold transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer shadow-sm"

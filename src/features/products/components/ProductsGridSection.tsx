@@ -87,28 +87,28 @@ export default function ProductsGridSection() {
                   <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${prod.role === 'Active' ? 'bg-emerald-50 text-emerald-600' : 'bg-purple-50 text-purple-600'}`}>
                     {prod.role}
                   </span>
-                  <button className="text-gray-400 hover:text-gray-600"><MoreVertical size={15} /></button>
+                  <button className="text-gray-800 hover:text-gray-600"><MoreVertical size={15} /></button>
                 </div>
               </div>
               
               {/* Product Name & Description (3 lines styled) */}
               <h3 className="text-[13px] font-bold text-[#030C25] mb-1">{prod.name}</h3>
-              <p className="text-[10px] text-gray-500 line-clamp-3 mb-4 leading-relaxed h-[36px]">{prod.desc}</p>
+              <p className="text-[10px] text-gray-500  mb-5 leading-relaxed h-[36px]">{prod.desc}</p>
               
               {/* Metrics List */}
               <div className="space-y-2 py-2.5 border-t border-b border-gray-50 text-[10px]">
                 <div className="flex items-center gap-2">
-                  <Users size={13} className="text-gray-400 shrink-0" />
+                  <Users size={13} className="text-gray-800 shrink-0" />
                   <span className="font-bold text-[#030C25]">{prod.clients}</span>
-                  <span className="text-gray-400">Active Clients</span>
+                  <span className="text-gray-600">Active Clients</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IndianRupee size={13} className="text-gray-400 shrink-0" />
+                  <IndianRupee size={13} className="text-gray-800 shrink-0" />
                   <span className="font-bold text-[#030C25]">{prod.revenue}</span>
-                  <span className="text-gray-400">MRR</span>
+                  <span className="text-gray-600">MRR</span>
                 </div>
                 <div className="flex items-center gap-2 truncate">
-                  <Tag size={13} className="text-gray-400 shrink-0" />
+                  <Tag size={13} className="text-gray-800 shrink-0" />
                   <span className="font-medium text-[#7a42ff] truncate">{prod.type}</span>
                 </div>
               </div>

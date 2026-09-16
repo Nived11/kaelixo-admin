@@ -1,6 +1,6 @@
 import { ArrowRight, Check, MoreVertical, Package, CalendarDays, Zap, Plus } from "lucide-react";
 
-export default function ProductsOverview() {
+export default function ProductsOverview({ onNavigate }: { onNavigate: (view: string) => void }) {
   const products = [
     { 
       id: "waywego",
@@ -68,10 +68,13 @@ export default function ProductsOverview() {
             <p className="text-[11px] font-medium text-[#64748b] mt-0.5">Your entire product portfolio at a glance</p>
           </div>
           
-          {/* Action Area: Create New Product Button & View All Products Link */}
+          {/* Action Area: Create New Product Button navigates to form */}
           <div className="flex items-center gap-3">
-            <button className="px-3.5 py-1.5 rounded-md text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
-                    style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}>
+            <button 
+              onClick={() => onNavigate("create")}
+              className="px-3.5 py-1.5 rounded-md text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
+              style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
+            >
               Create New Product <ArrowRight size={12} strokeWidth={2.5} />
             </button>
             <a href="#" className="text-[11px] font-bold text-[#7a42ff] hover:text-[#5b21b6] flex items-center gap-1 transition-colors">
@@ -84,13 +87,11 @@ export default function ProductsOverview() {
           {products.map((prod, i) => (
             <div key={i} className="bg-white rounded-lg border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md hover:border-gray-200 transition-all cursor-pointer flex flex-col pt-4 px-4 pb-8">
               
-              {/* Header with Anti-Overflow Fix */}
               <div className="flex items-start justify-between mb-5">
                 <div className="flex items-center gap-2.5">
                   <div className={`w-[36px] h-[36px] rounded-full flex items-center justify-center font-black text-[18px] shrink-0 ${prod.bg} ${prod.color}`}>
                     {prod.icon ? <prod.icon size={18} strokeWidth={2.5} fill={prod.id === 'automation' ? 'currentColor' : 'none'} /> : prod.logoText}
                   </div>
-                  {/* flex-wrap ensures badge goes down when squeezed */}
                   <div className="flex flex-wrap items-center gap-1.5">
                     <h3 className="text-[12px] font-bold text-[#030C25] whitespace-nowrap">{prod.name}</h3>
                     {prod.role && (
@@ -100,28 +101,23 @@ export default function ProductsOverview() {
                     )}
                   </div>
                 </div>
-                {/* shrink-0 prevents 3-dots from moving out of bounds */}
                 <button className="text-gray-400 hover:text-gray-600 shrink-0 mt-1">
                   <MoreVertical size={16} />
                 </button>
               </div>
 
-              {/* Stats Divider & Right Aligned Graph */}
               <div className="flex items-center relative z-10 mt-1">
                 <div className="pr-3 xl:pr-4">
                   <p className="text-[20px] font-black text-[#030C25] leading-none">{prod.clients}</p>
                   <p className="text-[10px] text-[#64748b] font-semibold mt-1">Clients</p>
                 </div>
-                
                 <div className="w-px h-8 bg-gray-100 mx-1 shrink-0"></div>
-                
                 <div className="pl-3 xl:pl-4 flex-1">
                   <p className="text-[15px] font-black text-[#030C25] leading-none">{prod.revenue}</p>
                   <p className="text-[10px] text-[#64748b] font-semibold mt-1">Monthly Revenue</p>
                 </div>
               </div>
 
-              {/* Dynamic Wavy Chart */}
               <div className="absolute bottom-0 right-0 w-[55%] h-12 opacity-90 pointer-events-none">
                 <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-full">
                   <defs>

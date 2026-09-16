@@ -1,6 +1,6 @@
 "use client";
 
-import { MoreVertical, Check } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 
 export default function ProductsTable() {
   const tableData = [
@@ -17,14 +17,21 @@ export default function ProductsTable() {
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-[14px] font-bold text-[#030C25]">All Products</h2>
-          <p className="text-[10px] text-[#64748b] font-medium">Manage and monitor your entire product portfolio</p>
+          <p className="text-[10px] text-gray-600 font-medium">Manage and monitor your entire product portfolio</p>
         </div>
       </div>
 
-      <div className="overflow-x-auto custom-scrollbar">
-        <table className="w-full text-left border-collapse min-w-[800px]">
+      {/* Styled scrollbar wrapper with inline styles to guarantee the exact scrollbar visual style */}
+      <div 
+        className="overflow-x-auto pb-3"
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#cbd5e1 #f1f5f9'
+        }}
+      >
+        <table className="w-full text-left border-collapse min-w-[950px]">
           <thead>
-            <tr className="border-b border-gray-100 text-[9px] text-[#64748b] font-bold uppercase tracking-wider">
+            <tr className=" bg-gray-100 rounded-lg text-[9px] text-gray-800  font-bold uppercase tracking-wider whitespace-nowrap">
               <th className="py-2.5 px-3 w-8"><input type="checkbox" className="rounded border-gray-300" /></th>
               <th className="py-2.5 px-3 font-semibold">Product</th>
               <th className="py-2.5 px-3 font-semibold">Category</th>
@@ -36,7 +43,7 @@ export default function ProductsTable() {
               <th className="py-2.5 px-3 font-semibold text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-50 text-xs">
+          <tbody className="divide-y divide-gray-50 text-xs whitespace-nowrap">
             {tableData.map((item, i) => (
               <tr key={i} className="hover:bg-gray-50/60 transition-colors">
                 <td className="py-3 px-3"><input type="checkbox" className="rounded border-gray-300" /></td>
@@ -48,9 +55,9 @@ export default function ProductsTable() {
                     <span className="font-bold text-[#030C25]">{item.name}</span>
                   </div>
                 </td>
-                <td className="py-3 px-3 text-[#64748b]">{item.category}</td>
+                <td className="py-3 px-3 font-semibold text-gray-600">{item.category}</td>
                 <td className="py-3 px-3 font-semibold text-[#030C25]">{item.clients}</td>
-                <td className="py-3 px-3 text-[#64748b]">{item.subs}</td>
+                <td className="py-3 px-3 font-semibold text-gray-600">{item.subs}</td>
                 <td className="py-3 px-3 font-bold text-[#030C25]">{item.revenue}</td>
                 <td className="py-3 px-3">
                   <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-bold text-[10px] ${
@@ -64,9 +71,9 @@ export default function ProductsTable() {
                     {item.status}
                   </span>
                 </td>
-                <td className="py-3 px-3 text-[#64748b]">{item.updated}</td>
+                <td className="py-3 px-3 font-semibold text-gray-600">{item.updated}</td>
                 <td className="py-3 px-3 text-right">
-                  <button className="text-gray-400 hover:text-gray-600 p-1"><MoreVertical size={16} /></button>
+                  <button className="text-gray-600 font-semibold hover:text-gray-600 p-1"><MoreVertical size={16} /></button>
                 </td>
               </tr>
             ))}

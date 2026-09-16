@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3 } from "lucide-react";
+import { BarChart3, Star, Store } from "lucide-react";
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 export default function ProductRightSidebar() {
@@ -14,9 +14,37 @@ export default function ProductRightSidebar() {
   ];
 
   const roadmap = [
-    { name: "Analytics Hub", status: "In Development", date: "Q4 2026", color: "text-purple-600 bg-purple-50" },
-    { name: "Loyalty Engine", status: "Planning", date: "Q1 2027", color: "text-amber-600 bg-amber-50" },
-    { name: "Marketplace Suite", status: "Design", date: "Q1 2027", color: "text-sky-600 bg-sky-50" },
+    { 
+      name: "Analytics Hub", 
+      desc: "Advanced analytics and reporting platform", 
+      status: "In Development", 
+      date: "Q4 2026", 
+      icon: BarChart3, 
+      color: "text-purple-600 bg-purple-50",
+      dotColor: "bg-purple-600",
+      iconBg: "bg-purple-50 text-purple-600" 
+    },
+    { 
+      name: "Loyalty Engine", 
+      desc: "Customer loyalty and rewards platform", 
+      status: "Planning", 
+      date: "Q1 2027", 
+      icon: Star, 
+      color: "text-amber-600 bg-amber-50",
+      dotColor: "bg-amber-500",
+      iconBg: "bg-amber-50 text-amber-500",
+      isFilled: true 
+    },
+    { 
+      name: "Marketplace Suite", 
+      desc: "Multi-vendor marketplace solution", 
+      status: "Design", 
+      date: "Q1 2027", 
+      icon: Store, 
+      color: "text-sky-600 bg-sky-50",
+      dotColor: "bg-sky-500",
+      iconBg: "bg-sky-50 text-sky-600" 
+    },
   ];
 
   return (
@@ -38,7 +66,7 @@ export default function ProductRightSidebar() {
             </ResponsiveContainer>
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <span className="text-[13px] font-black text-[#030C25] leading-tight">12</span>
-              <span className="text-[8px] font-medium text-gray-400">Products</span>
+              <span className="text-[8px] font-medium text-gray-600">Products</span>
             </div>
           </div>
 
@@ -51,7 +79,7 @@ export default function ProductRightSidebar() {
                 </div>
                 <div className="flex gap-1.5 text-right shrink-0">
                   <span className="font-bold text-[#030C25]">{item.value}</span>
-                  <span className="text-gray-400 w-7">{item.pct}</span>
+                  <span className="text-gray-600 w-7">{item.pct}</span>
                 </div>
               </div>
             ))}
@@ -59,29 +87,36 @@ export default function ProductRightSidebar() {
         </div>
       </div>
 
-      {/* Launch Pipeline */}
+      {/* Launch Pipeline with Filled Icons */}
       <div className="bg-white rounded-[16px] p-4 border border-gray-100 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)] flex flex-col">
         <div className="flex justify-between items-center mb-3">
           <div>
             <h2 className="text-[13px] font-bold text-[#030C25]">Launch Pipeline</h2>
-            <p className="text-[10px] text-[#64748b] font-medium">Upcoming products</p>
+            <p className="text-[10px] text-[#64748b] font-medium">Upcoming products and roadmap</p>
           </div>
-          <a href="#" className="text-[10px] font-semibold text-[#7a42ff] hover:underline">Roadmap &rarr;</a>
+          <a href="#" className="text-[10px] font-bold text-[#7a42ff] hover:underline">View Roadmap &rarr;</a>
         </div>
 
-        <div className="space-y-2 mt-1">
+        <div className="space-y-2.5 mt-1">
           {roadmap.map((item, i) => (
-            <div key={i} className="flex items-center justify-between p-2 rounded-xl bg-gray-50/70 border border-gray-100 text-xs">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg bg-white flex items-center justify-center text-[#7a42ff] shadow-sm">
-                  <BarChart3 size={12} />
+            <div key={i} className="flex items-center justify-between p-2.5 rounded-xl bg-gray-50/70 border border-gray-100/80">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${item.iconBg} shadow-sm`}>
+                  <item.icon size={16} className={item.isFilled ? "fill-current" : ""} />
                 </div>
-                <div>
-                  <p className="font-bold text-[#030C25] text-[11px] truncate max-w-[100px]">{item.name}</p>
-                  <span className={`text-[8px] font-bold px-1 py-0.2 rounded ${item.color}`}>{item.status}</span>
+                <div className="min-w-0">
+                  <p className="font-bold text-[#030C25] text-[11px] truncate">{item.name}</p>
+                  <p className="text-[9px] text-gray-500  mt-0.5">{item.desc}</p>
                 </div>
               </div>
-              <span className="text-[9px] font-bold text-gray-500 bg-white px-2 py-0.5 rounded-lg border border-gray-100 shrink-0">{item.date}</span>
+
+              <div className="flex flex-col items-end shrink-0 pl-2">
+                <span className={`text-[8px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${item.color}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${item.dotColor}`}></span>
+                  {item.status}
+                </span>
+                <span className="text-[10px] font-bold text-gray-600 mt-1">{item.date}</span>
+              </div>
             </div>
           ))}
         </div>

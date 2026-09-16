@@ -1,6 +1,6 @@
 import { Rocket, Check, ArrowRight } from "lucide-react";
 
-export default function DashboardBottomBanner() {
+export default function DashboardBottomBanner({ onNavigate }: { onNavigate: (view: string) => void }) {
   const features = [
     "Add new products",
     "Use shared customer base",
@@ -23,7 +23,7 @@ export default function DashboardBottomBanner() {
         </div>
       </div>
 
-      {/* Middle: Feature Checklist (Single line inline scroll/wrap preventive) */}
+      {/* Middle: Feature Checklist */}
       <div className="hidden lg:flex items-center justify-center gap-5">
         <div className="w-px h-5 bg-gray-200"></div>
         {features.map((feat, i) => (
@@ -35,8 +35,9 @@ export default function DashboardBottomBanner() {
         <div className="w-px h-5 bg-gray-200"></div>
       </div>
 
-      {/* Right: Create New Product Button */}
+      {/* Right: Create New Product Button with trigger */}
       <button 
+        onClick={() => onNavigate("create")}
         className="px-4 py-2 rounded-lg text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap"
         style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
       >
