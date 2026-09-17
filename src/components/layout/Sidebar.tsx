@@ -208,7 +208,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                         <Link
                           href={item.href}
                           onClick={handleLinkClick}
-                          className={`flex items-center px-4 py-2.5 rounded-xl transition-all whitespace-nowrap text-sm font-medium
+                          className={`flex items-center px-4 py-2.5 rounded-lg transition-all whitespace-nowrap text-sm font-medium
                             ${isActive 
                               ? 'bg-gradient-to-r from-[#FF0052] to-[#7a42ff] text-white shadow-lg shadow-pink-500/20' 
                               : 'text-[#94a3b8] hover:bg-white/5 hover:text-white'
