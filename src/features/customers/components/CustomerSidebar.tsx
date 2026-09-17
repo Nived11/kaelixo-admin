@@ -2,8 +2,11 @@
 
 import { UserPlus, FileText, TrendingUp, Download, ChevronRight } from "lucide-react";
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { useRouter } from "next/navigation";
 
 export default function CustomerSidebar() {
+  const router = useRouter();
+
   const segmentsData = [
     { name: "Enterprise", value: 156, pct: "10.5%", color: "#8b5cf6" },
     { name: "Professional", value: 342, pct: "23.1%", color: "#ec4899" },
@@ -21,10 +24,10 @@ export default function CustomerSidebar() {
   ];
 
   const quickActions = [
-    { title: "Add Customer", icon: UserPlus, bg: "bg-purple-50/80 hover:bg-purple-100/80 text-purple-700 border-purple-100/50" },
-    { title: "Send Invoice", icon: FileText, bg: "bg-blue-50/80 hover:bg-blue-100/80 text-blue-700 border-blue-100/50" },
-    { title: "Upgrade Plan", icon: TrendingUp, bg: "bg-rose-50/80 hover:bg-rose-100/80 text-rose-700 border-rose-100/50" },
-    { title: "Export Customers", icon: Download, bg: "bg-emerald-50/80 hover:bg-emerald-100/80 text-emerald-700 border-emerald-100/50" },
+    { title: "Add Customer", icon: UserPlus, bg: "bg-purple-50/80 hover:bg-purple-100/80 text-purple-700 border-purple-100/50", action: () => router.push("/customers/add") },
+    { title: "Send Invoice", icon: FileText, bg: "bg-blue-50/80 hover:bg-blue-100/80 text-blue-700 border-blue-100/50", action: () => {} },
+    { title: "Upgrade Plan", icon: TrendingUp, bg: "bg-rose-50/80 hover:bg-rose-100/80 text-rose-700 border-rose-100/50", action: () => {} },
+    { title: "Export Customers", icon: Download, bg: "bg-emerald-50/80 hover:bg-emerald-100/80 text-emerald-700 border-emerald-100/50", action: () => {} },
   ];
 
   const regions = [
@@ -132,7 +135,8 @@ export default function CustomerSidebar() {
           {quickActions.map((qa, i) => (
             <div 
               key={i} 
-              className={`rounded-xl px-2 py-2.5 border transition-all cursor-pointer flex items-center justify-between shadow-xs ${qa.bg}`}
+              onClick={qa.action}
+              className={`rounded-md px-2 py-2.5 border transition-all cursor-pointer flex items-center justify-between shadow-xs ${qa.bg}`}
             >
               <div className="flex items-center gap-1.5 min-w-0">
                 <qa.icon size={14} strokeWidth={2.5} className="shrink-0" />

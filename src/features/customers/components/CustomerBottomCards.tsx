@@ -12,21 +12,21 @@ export default function CustomerBottomCards() {
   ];
 
   const renewals = [
-    { customer: "Travel Mate", product: "Way We Go CRM", prodBg: "bg-purple-100 text-[#7a42ff]", logoText: "W", date: "12 Sep 2026", mrr: "₹14,999" },
-    { customer: "Holiday Hub", product: "CMS Platform", prodBg: "bg-rose-100 text-[#FF0052]", logoText: "C", date: "16 Sep 2026", mrr: "₹4,999" },
-    { customer: "Coastal Trips", product: "Booking Engine", prodBg: "bg-sky-100 text-[#0284c7]", logoText: "B", date: "22 Sep 2026", mrr: "₹9,999" },
-    { customer: "Explore India", product: "Automation Suite", prodBg: "bg-amber-100 text-amber-600", logoText: "A", date: "25 Sep 2026", mrr: "₹24,999" },
-    { customer: "Dream Tours", product: "CMS Platform", prodBg: "bg-rose-100 text-[#FF0052]", logoText: "C", date: "28 Sep 2026", mrr: "₹19,999" },
-    { customer: "Dream Tours", product: "CMS Platform", prodBg: "bg-rose-100 text-[#FF0052]", logoText: "C", date: "28 Sep 2026", mrr: "₹19,999" },
+    { customer: "Travel Mate", product: "Way We Go CRM", logoText: "W", date: "12 Sep 2026", mrr: "₹14,999" },
+    { customer: "Holiday Hub", product: "CMS Platform", logoText: "C", date: "16 Sep 2026", mrr: "₹4,999" },
+    { customer: "Coastal Trips", product: "Booking Engine", logoText: "B", date: "22 Sep 2026", mrr: "₹9,999" },
+    { customer: "Explore India", product: "Automation Suite", logoText: "A", date: "25 Sep 2026", mrr: "₹24,999" },
+    { customer: "Dream Tours", product: "CMS Platform", logoText: "C", date: "28 Sep 2026", mrr: "₹19,999" },
+    { customer: "Dream Tours", product: "CMS Platform", logoText: "C", date: "28 Sep 2026", mrr: "₹19,999" },
   ];
 
   const atRisk = [
-    { customer: "NextGen Media", product: "Booking Engine", prodBg: "bg-sky-100 text-[#0284c7]", logoText: "B", days: "5 days", mrr: "₹12,499" },
-    { customer: "Quick Stay", product: "CMS Platform", prodBg: "bg-rose-100 text-[#FF0052]", logoText: "C", days: "8 days", mrr: "₹7,999" },
-    { customer: "Nomad Trips", product: "Way We Go CRM", prodBg: "bg-purple-100 text-[#7a42ff]", logoText: "W", days: "10 days", mrr: "₹9,999" },
-    { customer: "Urban Stays", product: "Automation Suite", prodBg: "bg-amber-100 text-amber-600", logoText: "A", days: "12 days", mrr: "₹6,499" },
-    { customer: "Royal Vacations", product: "Booking Engine", prodBg: "bg-sky-100 text-[#0284c7]", logoText: "B", days: "15 days", mrr: "₹11,999" },
-    { customer: "Royal Vacations", product: "Booking Engine", prodBg: "bg-sky-100 text-[#0284c7]", logoText: "B", days: "15 days", mrr: "₹11,999" },
+    { customer: "NextGen Media", product: "Booking Engine", logoText: "B", days: "5 days", mrr: "₹12,499" },
+    { customer: "Quick Stay", product: "CMS Platform", logoText: "C", days: "8 days", mrr: "₹7,999" },
+    { customer: "Nomad Trips", product: "Way We Go CRM", logoText: "W", days: "10 days", mrr: "₹9,999" },
+    { customer: "Urban Stays", product: "Automation Suite", logoText: "A", days: "12 days", mrr: "₹6,499" },
+    { customer: "Royal Vacations", product: "Booking Engine", logoText: "B", days: "15 days", mrr: "₹11,999" },
+    { customer: "Royal Vacations", product: "Booking Engine", logoText: "B", days: "15 days", mrr: "₹11,999" },
   ];
 
   return (
@@ -110,7 +110,7 @@ export default function CustomerBottomCards() {
                 <tr key={i} className="hover:bg-gray-50/50">
                   <td className="py-2 px-2.5 font-bold text-[#030C25] text-[11px]">{r.customer}</td>
                   <td className="py-2 px-2.5">
-                    <span className={`inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full ${r.prodBg}`}>
+                    <span className={`inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full`}>
                       <span className="w-3.5 h-3.5 rounded bg-white/80 flex items-center justify-center text-[7.5px] font-black">{r.logoText}</span>
                       {r.product}
                     </span>
@@ -156,7 +156,7 @@ export default function CustomerBottomCards() {
                 <tr key={i} className="hover:bg-gray-50/50">
                   <td className="py-2 px-2.5 font-bold text-[#030C25] text-[11px]">{ar.customer}</td>
                   <td className="py-2 px-2.5">
-                    <span className={`inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full ${ar.prodBg}`}>
+                    <span className={`inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full`}>
                       <span className="w-3.5 h-3.5 rounded bg-white/80 flex items-center justify-center text-[7.5px] font-black">{ar.logoText}</span>
                       {ar.product}
                     </span>

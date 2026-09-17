@@ -24,10 +24,10 @@ export default function CustomersTable() {
           <p className="text-[10px] text-gray-500 font-medium">View and manage all customers across KAELIXO products.</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="px-2.5 py-1 text-[11px] font-bold bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-lg transition-colors flex items-center gap-1 shadow-sm cursor-pointer">
+          <button className="px-2.5 py-1 text-[11px] font-bold bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-md transition-colors flex items-center gap-1 shadow-sm cursor-pointer">
             <Download size={12} className="text-gray-500" /> Export
           </button>
-          <button className="p-1 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-lg transition-colors shadow-sm cursor-pointer">
+          <button className="p-1 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-md transition-colors shadow-sm cursor-pointer">
             <MoreVertical size={14} />
           </button>
         </div>

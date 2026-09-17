@@ -7,9 +7,11 @@ import CustomersTable from "./components/CustomersTable";
 import CustomerSidebar from "./components/CustomerSidebar";
 import CustomerBottomCards from "./components/CustomerBottomCards";
 import { Upload, Plus, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CustomersMain() {
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
 
   return (
     <div className="space-y-4 max-w-[1600px] mx-auto pb-6">
@@ -24,8 +26,8 @@ export default function CustomersMain() {
         </div>
         
         <div className="flex items-center gap-3">
-          
           <button 
+            onClick={() => router.push("/customers/add")}
             className="px-4.5 py-3 rounded-lg text-white font-bold text-xs shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
             style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
           >
@@ -43,7 +45,7 @@ export default function CustomersMain() {
       {/* 3. Filter Bar */}
       <CustomersFilterBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      {/* 4. Main Grid Section (Left: Table + Bottom Cards, Right: Sidebar with Segments, Lifecycle, Quick Actions & Regions) */}
+      {/* 4. Main Grid Section */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 items-start">
         
         {/* Left Column (9 Cols): Customers Table & Bottom Cards */}
