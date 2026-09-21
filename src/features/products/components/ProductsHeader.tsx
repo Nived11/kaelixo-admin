@@ -1,6 +1,10 @@
-import { Plus, Upload, ChevronRight } from "lucide-react";
+"use client";
 
-export default function ProductsHeader({ onNavigate }: { onNavigate: (view: string) => void }) {
+import { Plus, Upload, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+export default function ProductsHeader({ onNavigate }: { onNavigate?: (view: string) => void }) {
+  const router = useRouter();
   return (
     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
       
@@ -42,7 +46,7 @@ export default function ProductsHeader({ onNavigate }: { onNavigate: (view: stri
 
         {/* Add New Product Button with trigger */}
         <button 
-          onClick={() => onNavigate("create")}
+          onClick={() => router.push("/products/add")}
           className="px-4.5 py-3 rounded-lg text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
           style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
         >

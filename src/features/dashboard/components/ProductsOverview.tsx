@@ -1,6 +1,11 @@
-import { ArrowRight, Check, MoreVertical, Package, CalendarDays, Zap, Plus } from "lucide-react";
+"use client";
 
-export default function ProductsOverview({ onNavigate }: { onNavigate: (view: string) => void }) {
+import { ArrowRight, Check, MoreVertical, Package, CalendarDays, Zap, Plus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+export default function ProductsOverview({ onNavigate }: { onNavigate?: (view: string) => void }) {
+  const router = useRouter();
   const products = [
     { 
       id: "waywego",
@@ -71,15 +76,15 @@ export default function ProductsOverview({ onNavigate }: { onNavigate: (view: st
           {/* Action Area: Create New Product Button navigates to form */}
           <div className="flex items-center gap-3">
             <button 
-              onClick={() => onNavigate("create")}
+              onClick={() => router.push("/products/add")}
               className="px-3.5 py-1.5 rounded-md text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer"
               style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
             >
               Create New Product <ArrowRight size={12} strokeWidth={2.5} />
             </button>
-            <a href="#" className="text-[11px] font-bold text-[#7a42ff] hover:text-[#5b21b6] flex items-center gap-1 transition-colors">
+            <Link href="/products" className="text-[11px] font-bold text-[#7a42ff] hover:text-[#5b21b6] flex items-center gap-1 transition-colors">
               View All Products <ArrowRight size={12} strokeWidth={2.5} />
-            </a>
+            </Link>
           </div>
         </div>
 

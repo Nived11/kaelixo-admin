@@ -2,6 +2,7 @@
 
 import { ArrowRight, Plus, Send, ArrowUpCircle, Download } from "lucide-react";
 import { ResponsiveContainer, PieChart as RechartsPieChart, Pie, Cell } from "recharts";
+import Link from "next/link";
 
 export default function SubscriptionsSidebar() {
   const statusData = [
@@ -29,7 +30,7 @@ export default function SubscriptionsSidebar() {
   ];
 
   const quickActions = [
-    { title: "Add Subscription", desc: "Create a new subscription", icon: Plus, iconBg: "bg-pink-500 text-white" },
+    { title: "Add Subscription", desc: "Create a new subscription", icon: Plus, iconBg: "bg-pink-500 text-white", href: "/subscriptions/add" },
     { title: "Send Renewal Reminder", desc: "Notify upcoming renewals", icon: Send, iconBg: "bg-blue-600 text-white" },
     { title: "Upgrade Plan", desc: "Change subscription plan", icon: ArrowUpCircle, iconBg: "bg-purple-600 text-white" },
     { title: "Export Subscriptions", desc: "Download as CSV/Excel", icon: Download, iconBg: "bg-emerald-500 text-white" },
@@ -154,17 +155,40 @@ export default function SubscriptionsSidebar() {
 
         {/* Changed to flex-col (1 item per row) with slightly larger text */}
         <div className="flex flex-col gap-2.5">
-          {quickActions.map((action, i) => (
-            <div key={i} className="flex items-center gap-3 p-2.5 border border-gray-100 rounded-lg hover:border-[#5c45fd]/30 hover:bg-gray-50/50 transition-colors cursor-pointer group">
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${action.iconBg} shadow-sm group-hover:scale-105 transition-transform`}>
-                <action.icon size={15} strokeWidth={2.5} />
+          {quickActions.map((action, i) => {
+            const inner = (
+              <>
+                <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${action.iconBg} shadow-sm group-hover:scale-105 transition-transform`}>
+                  <action.icon size={15} strokeWidth={2.5} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-[12px] font-bold text-[#030C25] truncate">{action.title}</h4>
+                  <p className="text-[10px] text-gray-500 truncate mt-0.5">{action.desc}</p>
+                </div>
+              </>
+            );
+
+            if (action.href) {
+              return (
+                <Link
+                  key={i}
+                  href={action.href}
+                  className="flex items-center gap-3 p-2.5 border border-gray-100 rounded-lg hover:border-[#5c45fd]/30 hover:bg-gray-50/50 transition-colors cursor-pointer group"
+                >
+                  {inner}
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={i}
+                className="flex items-center gap-3 p-2.5 border border-gray-100 rounded-lg hover:border-[#5c45fd]/30 hover:bg-gray-50/50 transition-colors cursor-pointer group"
+              >
+                {inner}
               </div>
-              <div className="min-w-0 flex-1">
-                <h4 className="text-[12px] font-bold text-[#030C25] truncate">{action.title}</h4>
-                <p className="text-[10px] text-gray-500 truncate mt-0.5">{action.desc}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

@@ -1,8 +1,12 @@
-import { Plus, Layers, Settings, BookOpen, ChevronRight } from "lucide-react";
+"use client";
 
-export default function ProductsQuickActions({ onNavigate }: { onNavigate: (view: string) => void }) {
+import { Plus, Layers, Settings, BookOpen, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+export default function ProductsQuickActions({ onNavigate }: { onNavigate?: (view: string) => void }) {
+  const router = useRouter();
   const actions = [
-    { title: "Add New Product", icon: Plus, action: () => onNavigate("create") },
+    { title: "Add New Product", icon: Plus, action: () => router.push("/products/add") },
     { title: "Manage Plans", icon: Layers, action: () => {} },
     { title: "Product Settings", icon: Settings, action: () => {} },
     { title: "View Documentation", icon: BookOpen, action: () => {} },

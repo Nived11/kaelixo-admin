@@ -1,8 +1,10 @@
 "use client";
 
 import { MoreHorizontal, ChevronRight, ChevronLeft, Search, Upload, Plus, ChevronDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function SubscriptionsTableSection() {
+  const router = useRouter();
   const subscriptions = [
     { id: "SUB-001248", company: "ABC Travels", product: "Way We Go CRM", plan: "Professional", cycle: "Monthly", start: "12 Sep 2025", renewal: "12 Oct 2026", status: "Active", mrr: "₹16,249", autoRenew: true },
     { id: "SUB-001247", company: "Global Holidays", product: "CMS Platform", plan: "Business", cycle: "Annual", start: "16 Jan 2026", renewal: "16 Jan 2027", status: "Active", mrr: "₹19,999", autoRenew: true },
@@ -54,7 +56,10 @@ export default function SubscriptionsTableSection() {
           <button className="px-3 py-1.5 text-[11px] font-bold bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-md transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer whitespace-nowrap">
             <Upload size={12} strokeWidth={2.5} /> Export
           </button>
-          <button className="px-4 py-1.5 text-[11px] font-bold bg-[#ec4899] text-white hover:bg-[#db2777] rounded-md transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer whitespace-nowrap">
+          <button 
+            onClick={() => router.push("/subscriptions/add")}
+            className="px-4 py-1.5 text-[11px] font-bold bg-[#ec4899] text-white hover:bg-[#db2777] rounded-md transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer whitespace-nowrap"
+          >
             <Plus size={14} strokeWidth={3} /> Add Subscription
           </button>
         </div>

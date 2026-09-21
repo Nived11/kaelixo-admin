@@ -1,6 +1,10 @@
-import { Rocket, Check, ArrowRight } from "lucide-react";
+"use client";
 
-export default function DashboardBottomBanner({ onNavigate }: { onNavigate: (view: string) => void }) {
+import { Rocket, Check, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+export default function DashboardBottomBanner({ onNavigate }: { onNavigate?: (view: string) => void }) {
+  const router = useRouter();
   const features = [
     "Add new products",
     "Use shared customer base",
@@ -37,7 +41,7 @@ export default function DashboardBottomBanner({ onNavigate }: { onNavigate: (vie
 
       {/* Right: Create New Product Button with trigger */}
       <button 
-        onClick={() => onNavigate("create")}
+        onClick={() => router.push("/products/add")}
         className="px-4 py-2 rounded-lg text-white font-bold text-[11px] shadow-sm transition-all hover:opacity-90 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap"
         style={{ background: 'linear-gradient(90deg, #FF0052 0%, #7a42ff 100%)' }}
       >
